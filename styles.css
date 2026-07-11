@@ -750,44 +750,6 @@ body {
 /* Responsive sidebar controls for mobile screens */
 @media (max-width: 1024px) {
   .app-sidebar {
-    width: 70px;
-    padding: 24px 10px;
-    align-items: center;
-  }
-  .app-logo span, .nav-item span, .user-info, .sidebar-footer {
-    display: none;
-  }
-  .nav-item a {
-    justify-content: center;
-    padding: 12px;
-  }
-  .app-logo {
-    margin-bottom: 30px;
-  }
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 640px) {
-  .app-sidebar {
-    display: none; /* Can toggle on mobile via class if needed */
-  }
-  .app-header {
-    padding: 0 20px;
-  }
-  .view-container {
-    padding: 20px;
-  }
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
-  .grid-actions-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-@media (max-width: 1024px) {
-  .app-sidebar {
     width: 70px !important;
     padding: 24px 10px !important;
     align-items: center !important;
@@ -936,6 +898,38 @@ body {
   .dashboard-layout, .details-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
+  }
+
+  .dashboard-col-left, .dashboard-col-right {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .data-table-wrapper {
+    overflow-x: auto !important;
+    display: block !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    width: 100% !important;
+    min-width: 600px !important; /* Table ko squeeze hone se rokega aur scroll layega */
+    border-collapse: collapse !important;
+  }
+
+  .data-table th, .data-table td {
+    padding: 12px 10px !important;
+    white-space: nowrap !important; /* Columns ko ek line me rakhega */
+  }
+
+  .data-table td:nth-child(2) {
+    white-space: normal !important; /* Sirf description box wrap ho sake baqi title seedhe rahein */
+    min-width: 250px !important;
+  }
+
+  .timeline-content {
+    word-break: break-word !important;
   }
 
   .grid-actions-bar {
