@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaintainIQ - AI-Powered QR Maintenance & Asset History</title>
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- QRCode.js CDN for client-side QR generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+  <!-- Demo Control Bar (Role Switcher & Mock Reset) -->
+  <div class="demo-control-bar" id="demo-control-bar">
+    <div class="demo-title">
+      <i data-lucide="cpu"></i>
+      MaintainIQ Demo Console
+    </div>
+    <div class="demo-roles">
+      <span style="font-size: 0.75rem; color: var(--text-muted); align-self: center; margin-right: 8px;">Active Persona:</span>
+      <button class="role-btn active" data-role="admin">Admin</button>
+      <button class="role-btn" data-role="technician">Technician</button>
+      <button class="role-btn" data-role="public">Public / Reporter</button>
+    </div>
+  </div>
+  <!-- App Wrapper -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="app-logo">
+        <i data-lucide="shield-check" style="stroke: var(--primary); stroke-width: 2.5;"></i>
+        <span>MaintainIQ</span>
+      </div>
+      
+      <nav style="flex: 1;">
+        <ul class="nav-menu">
+          <li class="nav-item active" id="nav-dashboard">
+            <a href="#/">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item" id="nav-assets">
+            <a href="#/assets">
+              <i data-lucide="package"></i>
+              <span>Assets</span>
+            </a>
+          </li>
+          <li class="nav-item" id="nav-issues">
+            <a href="#/issues">
+              <i data-lucide="wrench"></i>
+              <span>Issues</span>
+            </a>
+          </li>
+          <li class="nav-item" id="nav-settings">
+            <a href="#/settings">
+              <i data-lucide="settings"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="user-avatar" id="user-avatar">A</div>
+          <div class="user-info">
+            <div class="user-name" id="user-name">System Administrator</div>
+            <div class="user-role" id="user-role">Full Access</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="app-content">
+      <header class="app-header">
+        <h1 class="page-title" id="page-title">Dashboard</h1>
+        <div class="header-actions" id="header-actions">
+          <!-- Contextual buttons will be injected here -->
+        </div>
+      </header>
+      <!-- Dynamic View Injection Target -->
+      <div class="view-container" id="view-container">
+        <!-- Rendered Page Content goes here -->
+      </div>
+    </main>
+  </div>
+  <!-- Global Modal Backdrop -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-container" id="modal-container">
+      <!-- Modal Content Injected Here -->
+    </div>
+  </div>
+  
+  <!-- App Main Entry Module -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
