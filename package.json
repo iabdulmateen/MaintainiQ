@@ -1,0 +1,19 @@
+{
+  "name": "saylani-hackathon-user-management",
+  "version": "1.0.0",
+  "description": "Invite-only user management and RBAC system with SQLite and Express",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.2",
+    "sql.js": "^1.8.0"
+  }
+}

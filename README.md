@@ -14,15 +14,15 @@ Because the application is built using modern **Vanilla JavaScript (ES Modules)*
 To enable ES module loading (`import` statements), you must serve the files from a local server. Run any of the following commands in the project folder:
 **Using Python:**
 ```bash
-python -m http.server 8000
+python -m http.server 3000
 ```
-Open your browser to: `http://localhost:8000`
+Open your browser to: `http://localhost:3000`
 **Using Node.js (npx):**
 ```bash
 npx live-server
 ```
 ### Step 2: Open and Test
-- Navigate to `http://localhost:8000` or the address output by your server.
+- Navigate to `http://localhost:3000` or the address output by your server.
 - The app initializes preloaded with **5 assets, 2 active issues, and 4 history entries** so you can start testing immediately.
 - Use the **MaintainIQ Demo Console** at the top of the viewport to switch between **Admin**, **Technician**, and **Public User** roles.
 ---
