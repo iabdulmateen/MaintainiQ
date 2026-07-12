@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MaintainIQ - AI-Powered QR Maintenance & Asset History</title>
   <link rel="stylesheet" href="./styles.css">
-  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- QRCode.js CDN for client-side QR generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 </head>
 <body>
-  <!-- Demo Control Bar (Role Switcher & Mock Reset) -->
+
   <div class="demo-control-bar" id="demo-control-bar">
     <div class="demo-title">
       <i data-lucide="cpu"></i>
@@ -25,10 +22,8 @@
       <button class="role-btn" data-role="public">Public / Reporter</button>
     </div>
   </div>
-  <!-- App Wrapper -->
+
   <div class="app-container">
-    
-    <!-- Sidebar Navigation -->
     <aside class="app-sidebar" id="app-sidebar">
       <div class="app-logo">
         <i data-lucide="shield-check" style="stroke: var(--primary); stroke-width: 2.5;"></i>
@@ -36,7 +31,7 @@
       </div>
       
       <nav style="flex: 1;">
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
           <li class="nav-item active" id="nav-dashboard">
             <a href="#/">
               <i data-lucide="layout-dashboard"></i>
@@ -55,7 +50,7 @@
               <span>Issues</span>
             </a>
           </li>
-          <li class="nav-item" id="nav-settings">
+          <li class="nav-item admin-only" id="nav-settings">
             <a href="#/settings">
               <i data-lucide="settings"></i>
               <span>Settings</span>
@@ -73,28 +68,23 @@
         </div>
       </div>
     </aside>
-    <!-- Main Content Area -->
+
     <main class="app-content">
       <header class="app-header">
         <h1 class="page-title" id="page-title">Dashboard</h1>
         <div class="header-actions" id="header-actions">
-          <!-- Contextual buttons will be injected here -->
         </div>
       </header>
-      <!-- Dynamic View Injection Target -->
       <div class="view-container" id="view-container">
-        <!-- Rendered Page Content goes here -->
       </div>
     </main>
   </div>
-  <!-- Global Modal Backdrop -->
+
   <div class="modal-backdrop" id="modal-backdrop">
     <div class="modal-container" id="modal-container">
-      <!-- Modal Content Injected Here -->
     </div>
   </div>
   
-  <!-- App Main Entry Module -->
   <script type="module" src="app.js"></script>
 </body>
 </html>

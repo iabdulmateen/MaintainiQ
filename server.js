@@ -12,16 +12,20 @@ import util from 'util';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const dbPath = path.join(__dirname, 'app.db');
 const jwtSecret = process.env.JWT_SECRET || 'dev-secret-change-me';
-const appUrl = process.env.APP_URL || 'http://localhost:3000';
+const appUrl = (process.env.APP_URL || process.env.LOCALTUNNEL_URL || 'https://sour-taxis-itch.loca.lt').replace(/\/$/, '');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
+
+app.get('/public/:assetCode', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 let db;
 let SQL;
@@ -84,6 +88,8 @@ async function initDatabase() {
     )
   `);
 
+  // Keep the bootstrap admin as the real system administrator.
+  // Demo persona toggles in the frontend are UI-only and do not replace database-backed auth.
   const adminEmail = process.env.ADMIN_EMAIL || 'admin@maintainiq.local';
   const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@123!';
   const existingAdmin = await getOne('SELECT id FROM users WHERE email = ?', [adminEmail]);
@@ -322,12 +328,12 @@ await initDatabase();
 
 function startServer(portToUse) {
   const server = app.listen(portToUse, () => {
-    console.log(`Server running on http://localhost:${portToUse}`);
+    console.log(`Server running on ${appUrl}`);
   });
 
   server.on('error', (error) => {
     if (error.code === 'EADDRINUSE' && portToUse === port) {
-      console.log(`Port ${portToUse} is busy, trying http://localhost:${portToUse + 1}`);
+      console.log(`Port ${portToUse} is busy, trying ${appUrl}:${portToUse + 1}`);
       startServer(portToUse + 1);
       return;
     }
