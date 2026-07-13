@@ -12,6 +12,14 @@ export class Router {
   // Resolve the current hash route and trigger rendering
   async handleRouting() {
     const hash = window.location.hash || "#/";
+    const isPublicRout = hash.startsWith("#/public/");
+
+    // Body par class toggle karo
+    if (isPublicRout) {
+        document.body.classList.add("public-mode");
+    } else {
+        document.body.classList.remove("public-mode");
+    }
     let matchedRoute = null;
     let params = {};
     // Custom matching for route parameters (e.g., #/public/:id)
