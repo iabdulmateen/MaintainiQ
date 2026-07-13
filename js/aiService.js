@@ -12,6 +12,15 @@ export class AIService {
       localStorage.removeItem("maintainiq_gemini_key");
     }
   }
+  saveApiKey(key) {
+    if (key === "") {
+        localStorage.removeItem("maintainiq_gemini_key");
+        this.apiKey = "";
+    } else if (key) {
+        this.apiKey = key;
+        localStorage.setItem("maintainiq_gemini_key", key);
+    }
+}
   getApiKey() {
     return localStorage.getItem("maintainiq_gemini_key") || "";
   }
