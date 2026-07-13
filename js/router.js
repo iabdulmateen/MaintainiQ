@@ -36,15 +36,16 @@ export class Router {
     const demoBar = document.getElementById("demo-control-bar");
     // Hide dashboard/nav components if it's a public reporting route
     const isPublicRoute = hash.startsWith("#/public/");
-    if (isPublicRoute) {
-      if (appSidebar) appSidebar.style.display = "none";
-      if (appHeader) appHeader.style.display = "none";
-      if (demoBar) {
-        // Keep the demo bar visible but style it subtly for evaluators
-        demoBar.style.borderBottom = "1px solid rgba(255, 255, 255, 0.05)";
-      }
-      document.querySelector(".app-container").style.height = "100vh";
-    } else {
+    // Is hissay ko update karo:
+if (isPublicRoute) {
+  if (appSidebar) appSidebar.style.display = "none";
+  if (appHeader) appHeader.style.display = "none";
+  
+  // DEMO BAR KO BHI HIDE KAR DO PITCH KE LIYE
+  if (demoBar) demoBar.style.display = "none"; 
+  
+  document.querySelector(".app-container").style.height = "100vh";
+} else {
       if (appSidebar) appSidebar.style.display = "flex";
       if (appHeader) appHeader.style.display = "flex";
       if (demoBar) {
