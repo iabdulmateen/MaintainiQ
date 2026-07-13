@@ -270,7 +270,7 @@ export class AssetsPage {
     const asset = await storage.getAssetByCode(code);
     const backdrop = document.getElementById("modal-backdrop");
     const container = document.getElementById("modal-container");
-    const publicUrl = `${window.location.origin}${window.location.pathname}#/public/${asset.code}`;
+const publicUrl = `https://maintaini-q-ny6m.vercel.app/#/public/${asset.code}`;
     container.innerHTML = `
       <div class="modal-header">
         <h2 style="font-size:1.15rem; font-weight:700;">Print Asset Label</h2>
