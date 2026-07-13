@@ -970,3 +970,9 @@ body {
     padding: 12px !important;
   }
 }
+/* Jab URL public ho, toh header aur navigation ko hide karo */
+body.public-mode .app-header, 
+body.public-mode .app-sidebar,
+body.public-mode .dashboard-nav {
+    display: none !important;
+}
