@@ -13,7 +13,7 @@ export class Router {
   async handleRouting() {
     const hash = window.location.hash || "#/";
     const isPublicRout = hash.startsWith("#/public/");
-
+    viewContainer.innerHTML = "";
     // Body par class toggle karo
     if (isPublicRout) {
         document.body.classList.add("public-mode");
