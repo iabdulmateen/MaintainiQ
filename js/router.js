@@ -36,7 +36,9 @@ export class Router {
           params[name] = match[idx + 1];
         });
         break;
+        
       }
+
     }
     const viewContainer = document.getElementById("view-container");
     const appSidebar = document.getElementById("app-sidebar");
@@ -112,5 +114,9 @@ if (isPublicRoute) {
       document.getElementById("nav-settings")?.classList.add("active");
     }
   }
-}
+  forceRefresh() {
+    this.handleRouting();
+  }
+};
+
 export const router = new Router();
